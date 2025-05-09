@@ -17,7 +17,7 @@ export const ShopCategory = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
                     {
                         filteredProducts.map((product) => (
-                            <Item key={product.id} name={product.name} image={product.image} new_price={product.new_price} old_price={product.old_price} />
+                            <Item key={product.id} name={product.name} id={product.id} image={product.image} new_price={product.new_price} old_price={product.old_price} />
                         ))
                     }
                 </div>

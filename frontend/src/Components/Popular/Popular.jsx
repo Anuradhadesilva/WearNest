@@ -29,6 +29,7 @@ export const Popular = () => {
                     {data_product.map((item) => (
                         <Item
                             key={item.id}
+                            id={item.id}
                             name={item.name}
                             image={item.image}
                             new_price={item.new_price}
