@@ -6,6 +6,7 @@ import { IoCloseCircleOutline } from "react-icons/io5";
 import { motion } from "motion/react"
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { Login } from '../../Pages/Login';
 
 export const Navbar = () => {
     const menuItems = [
@@ -17,6 +18,7 @@ export const Navbar = () => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [menu, setMenu] = useState("Shop");
+    const [loginbarOpen, setLoginbarOpen] = useState(false)
 
     return (
         <>
@@ -76,6 +78,7 @@ export const Navbar = () => {
                                     color: "black",
                                     ":hover": { borderColor: "black", backgroundColor: "#f5f5f5" }
                                 }}
+                                onClick={() => setLoginbarOpen(true)}
                             >
                                 Login
                             </Button>
@@ -113,6 +116,7 @@ export const Navbar = () => {
                     ))}
                 </div>
             </div>
+            <Login isOpen={loginbarOpen} onClose={() => setLoginbarOpen(false)} />
         </>
     );
 }
