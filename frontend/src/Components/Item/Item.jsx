@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export const Item = ({ id, name, image, old_price, new_price }) => {
     return (
         <div className="bg-white rounded-xl shadow-md p-4 flex flex-col items-center space-y-3 hover:scale-105 transition-all">
-            <Link to={`/product/${id}`}>
+            <Link to={`/product/${id}`} onClick={() => window.scrollTo(0, 0)}>
                 <img src={image} alt={name} className="object-contain" />
             </Link>
             <h3 className="text-lg font-semibold text-center">{name}</h3>

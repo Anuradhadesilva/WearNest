@@ -1,5 +1,5 @@
 import React from 'react'
-import data_product from '../Assets/data'
+import data_product from '../Assets/data_product'
 import { Item } from '../Item/Item'
 import { motion } from "motion/react"
 
