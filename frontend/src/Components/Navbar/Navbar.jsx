@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import logo from '../Assets/logo1.png'
 import cart_icon from '../Assets/cart_icon.png'
 import { LuMenu } from "react-icons/lu";
@@ -7,6 +7,7 @@ import { motion } from "motion/react"
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { Login } from '../../Pages/Login';
+import { ShopContext } from '../../Contexts/ShopContext';
 
 export const Navbar = () => {
     const menuItems = [
@@ -18,7 +19,11 @@ export const Navbar = () => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [menu, setMenu] = useState("Shop");
-    const [loginbarOpen, setLoginbarOpen] = useState(false)
+    const [loginbarOpen, setLoginbarOpen] = useState(false);
+    const { cartItems } = useContext(ShopContext);
+
+    const totalItems = Object.values(cartItems).reduce((acc, quantity) => acc + quantity, 0);
+
 
     return (
         <>
@@ -35,7 +40,7 @@ export const Navbar = () => {
                     </div>
                     <div className='flex items-center space-x-6'>
                         <img src={logo} alt="Logo" className='h-10' />
-                        <h1 className='text-2xl font-bold'>SHOPPER</h1>
+                        <h1 className='text-2xl font-bold'>WearNest</h1>
                     </div>
                     {/* Centered Navigation Links */}
                     <div className='hidden md:flex space-x-6 justify-center flex-1'>
@@ -86,7 +91,7 @@ export const Navbar = () => {
                         <div className='relative'>
                             <Link to="/cart">
                                 <img src={cart_icon} alt="Cart" className='h-6 w-auto' />
-                                <div className='flex absolute -mt-7 ml-4 bg-red-500 rounded-full w-4 text-xs justify-center items-center'>0</div>
+                                <div className='flex absolute -mt-7 ml-4 bg-red-500 rounded-full w-4 text-xs justify-center items-center'>{totalItems}</div>
                             </Link>
                         </div>
                     </div>

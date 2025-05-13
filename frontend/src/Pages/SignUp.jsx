@@ -25,7 +25,7 @@ export const SignUp = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-            <div className="absolute top-20 left-20 text-sm text-gray-600">
+            <div className="absolute lg:top-20 lg:left-20 top-20 left-5 text-sm text-gray-600">
                 <span
                     onClick={() => navigate('/')}
                     className="cursor-pointer text-black hover:underline"
