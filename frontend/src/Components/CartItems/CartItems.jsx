@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { ShopContext } from '../../Contexts/ShopContext'
+import { div } from 'motion/react-client';
 
 export const CartItems = () => {
     const { all_product, removeFromCart, cartItems } = useContext(ShopContext)
@@ -8,7 +9,7 @@ export const CartItems = () => {
         return total + product.new_price * cartItems[product.id];
     }, 0);
 
-    const shipping = subTotal > 0 ? 30 : 0;
+    const shipping = subTotal > 5000 ? 0 : 30;
     const grandTotal = subTotal + shipping;
 
     return (
@@ -16,7 +17,10 @@ export const CartItems = () => {
             <h2 className="text-2xl font-bold mb-6">Your Shopping Cart</h2>
 
             {cartProducts.length === 0 ? (
-                <p>Your cart is empty.</p>
+                <div className='h-[300px]'>
+                    <p>Your cart is empty.</p>
+                </div>
+
             ) : (
                 <>
                     <table className="w-full border border-gray-300 md:text-sm  text-xs">
@@ -58,18 +62,18 @@ export const CartItems = () => {
                         <h2 className='md:text-xl text-lg font-bold'>Cart Totals</h2>
                         <div className="mt-4 space-y-2">
                             <div className="flex justify-between">
-                                <span className=" md:text-lg text-md" >Subtotal:</span>
+                                <span className="md:text-md text-md" >Subtotal:</span>
                                 <span className="font-semibold md:text-lg text-md">${subTotal.toFixed(2)}</span>
                             </div>
                             <hr />
                             <div className='flex justify-between'>
-                                <span className=" md:text-lg text-md">Shipping:</span>
-                                <span className="font-semibold md:text-lg text-md">${shipping.toFixed(2)}</span>
+                                <span className="md:text-md text-md">Shipping:</span>
+                                <span className="font-semibold md:text-md text-md">${shipping.toFixed(2)}</span>
                             </div>
                             <hr />
                             <div className='flex justify-between'>
-                                <span className=" md:text-lg text-md">Total:</span>
-                                <span className="font-semibold md:text-lg text-md">${grandTotal.toFixed(2)}</span>
+                                <span className="font-semibold md:text-md text-md">Total:</span>
+                                <span className="font-semibold md:text-md text-md">${grandTotal.toFixed(2)}</span>
                             </div>
                             <div className='flex '>
                                 <button className="mt-3 px-6 py-2 bg-red-500 text-white rounded hover:bg-red-600">

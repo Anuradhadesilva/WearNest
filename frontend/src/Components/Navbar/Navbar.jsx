@@ -74,20 +74,18 @@ export const Navbar = () => {
 
                     {/* Right side: Login Button and Cart Icon */}
                     <div className='flex space-x-6 items-center mr:0 md:mr-10'>
-                        <Link to="/login">
-                            <Button
-                                variant="outlined"
-                                href="#outlined-buttons"
-                                sx={{
-                                    borderColor: "black",
-                                    color: "black",
-                                    ":hover": { borderColor: "black", backgroundColor: "#f5f5f5" }
-                                }}
-                                onClick={() => setLoginbarOpen(true)}
-                            >
-                                Login
-                            </Button>
-                        </Link>
+                        <Button
+                            variant="outlined"
+                            href="#outlined-buttons"
+                            sx={{
+                                borderColor: "black",
+                                color: "black",
+                                ":hover": { borderColor: "black", backgroundColor: "#f5f5f5" }
+                            }}
+                            onClick={() => setLoginbarOpen(true)}
+                        >
+                            Login
+                        </Button>
                         <div className='relative'>
                             <Link to="/cart">
                                 <img src={cart_icon} alt="Cart" className='h-6 w-auto' />
